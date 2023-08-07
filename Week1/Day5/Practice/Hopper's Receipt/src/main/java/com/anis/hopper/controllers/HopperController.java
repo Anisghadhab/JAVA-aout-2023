@@ -11,7 +11,7 @@ public class HopperController {
 		String name = "Grace Dopper";
 		String itemName = "Copper wire";
 		double price = 5.25;
-		String description = "Metak strips, also an illustration of nanoseconds";
+		String description = "Metal strips, also an illustration of nanoseconds";
 		String vendor = "Little Things Corner Store";
 		
 		model.addAttribute("firstname",name);

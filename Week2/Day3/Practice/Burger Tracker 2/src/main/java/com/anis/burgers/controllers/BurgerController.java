@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -61,6 +62,17 @@ public class BurgerController {
 			return "edit.jsp";
 		} else
 			burgerservice.updateBurger(burger);
+		return "redirect:/burgers";
+	}
+	@GetMapping("/burgers/{id}")
+	public String showOne(@PathVariable("id") Long id, Model model) {
+		Burger burger = burgerservice.findBurger(id);
+		model.addAttribute("oneBurger",burger);
+		return "oneburger.jsp";
+	}
+	@DeleteMapping("/burgers/{id}/delete")
+	public String delete(@PathVariable("id") Long id) {
+		burgerservice.deleteBurger(id);
 		return "redirect:/burgers";
 	}
 }

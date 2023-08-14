@@ -12,6 +12,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -34,7 +36,22 @@ public class Dojo {
 	private Date updatedAt;
 	
 	@OneToMany(mappedBy="dojo", fetch = FetchType.LAZY)
-    private List<Ninja> ninjas;
+	private List<Belt> belts;
+	
+    public List<Belt> getBelts() {
+		return belts;
+	}
+	public void setBelts(List<Belt> belts) {
+		this.belts = belts;
+	}
+	@PrePersist
+    protected void onCreate(){
+        this.createdAt = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updatedAt = new Date();
+    }
 	
 	// Empty Constructor
 	public Dojo() {
@@ -56,14 +73,6 @@ public class Dojo {
 		this.name = name;
 	}
 
-	public List<Ninja> getNinjas() {
-		return ninjas;
-	}
-
-	public void setNinjas(List<Ninja> ninjas) {
-		this.ninjas = ninjas;
-	}
-
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -79,5 +88,15 @@ public class Dojo {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+
+//	public List<B> getNinjas() {
+//		return ninjas;
+//	}
+//
+//	public void setNinjas(List<Book> ninjas) {
+//		this.ninjas = ninjas;
+//	}
+
+
 	
 }

@@ -18,34 +18,12 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   <table class="table">
-		<thead>
-			<tr>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Age</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${oneDojo.ninjas }" var="oneNinja">
-				<tr>
-					<td><a href="/ninjas/${oneNinja.id}">${oneNinja.firstName }</a></td>
-					<td>${oneNinja.lastName }</td>
-					<td>${oneNinja.age }</td>
-					<td class="d-flex flex-row">
-						<a href="/ninjas/${oneNinja.id }/edit" class="btn btn-outline-primary col-md-2 ">Edit</a>
-					
-						<form action="/ninjas/${oneNinja.id}/delete" method="post">
-							<input type="hidden" name="_method" value="delete"> 
-							<input type="submit" value="Delete" class="btn btn-outline-primary col-md-14 offset-md-4">
-						</form>
-					</td>
-				</tr>
-			</c:forEach>
+<h1>About ${dojo.name }</h1>
+<c:forEach items = "${allBelts }" var = "oneBelt">
+<li><c:out value="${oneBelt.title }"/></li> 
+</c:forEach>
+ 
 
-		</tbody>
-	</table>
 </body>
 </html>
 

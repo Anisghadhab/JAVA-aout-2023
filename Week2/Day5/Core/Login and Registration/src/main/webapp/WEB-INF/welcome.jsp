@@ -11,18 +11,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>All Dojos</title>
+    <title>insert title</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   <h1>Dojos</h1>
-   <c:forEach items = "${allDojos }" var = "oneDojo">
-   <h3> <a href="dojos/${oneDojo.id }" ><c:out value="${oneDojo.name }"/></a>  </h3> 
-   </c:forEach>
-   <button> <a href = "/ninjas/new" >Add a Ninja</a> </button>
+   Welcome, ${user.userName } !
+   This is your dashboard nothing to see here yet.
+   <a href = "/logout">Logout</a>
 </body>
 </html>
 

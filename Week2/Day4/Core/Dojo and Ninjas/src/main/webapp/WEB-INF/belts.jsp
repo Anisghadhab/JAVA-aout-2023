@@ -40,19 +40,18 @@
 					<td><a href="/belts/${oneBelt.id}">${oneBelt.title }</a></td>
 					<td>${oneBelt.language }</td>
 					<td>${oneBelt.numberOfPages }</td>
-					<td> <a href="/dojos/${oneBelt.dojo.id }" >${oneBelt.dojo.name } </a> </td>
+					<td><a href="/dojos/${oneBelt.dojo.id }">${oneBelt.dojo.name }</a></td>
 					<c:if test="${user_id == oneBelt.ninja.id}">
-					<td class="d-flex flex-row"><a
-						href="/belts/${oneBelt.id }/edit"
-						class="btn btn-outline-primary col-md-2 ">Edit</a>
-						
-						<form action="/belts/${oneBelt.id}/delete" method="post">
-							<input type="hidden" name="_method" value="delete"> <input
-								type="submit" value="Delete"
-								class="btn btn-outline-primary col-md-14 offset-md-4">
-						</form>
+						<td class="d-flex flex-row">
+							<a href="/belts/${oneBelt.id }/edit" class="btn btn-outline-primary col-md-2 ">
+								Edit
+							</a>
+							<form action="/belts/${oneBelt.id}/delete" method="post">
+								<input type="hidden" name="_method" value="delete"> 
+								<input type="submit" value="Delete" class="btn btn-outline-primary col-md-14 offset-md-4">
+							</form>
 						</td>
-						</c:if>
+					</c:if>
 				</tr>
 			</c:forEach>
 
@@ -60,21 +59,21 @@
 	</table>
 	<button type="button"
 		class="btn btn-outline-primary col-md-2 offset-md-9">
-		<a href="/belts/new">Create a Belt</a> 
+		<a href="/belts/new">Create a Belt</a>
 
 	</button>
-		<button type="button"
+	<button type="button"
 		class="btn btn-outline-primary col-md-2 offset-md-9">
-			<a href="/dojos/new">Create a Dojo</a>
+		<a href="/dojos/new">Create a Dojo</a>
 
 	</button>
-		</button>
-		<button type="button"
+	</button>
+	<button type="button"
 		class="btn btn-outline-primary col-md-2 offset-md-9">
-			<a href="/logout">Logout</a>
+		<a href="/logout">Logout</a>
 
 	</button>
-	
+
 </body>
 </html>
 
